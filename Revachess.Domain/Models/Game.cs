@@ -10,5 +10,7 @@ namespace Revachess.Domain.Models
     public User Player1 { get; set; }
     public User Player2 { get; set; }
     public User Winner { get; set; }
+    public List<GameState> States { get; set; }
+
   }
 }
