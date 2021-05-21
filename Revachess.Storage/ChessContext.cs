@@ -1,0 +1,32 @@
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Revachess.Domain.Models;
+
+namespace Revachess.Storage
+{
+  public class ChessContext : DbContext
+  {
+    public DbSet<Game> Games { get; set; }
+    public DbSet<User> Users { get; set; }
+
+
+    public ChessContext(DbContextOptions options) : base(options) { }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="builder"></param>
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+      builder.Entity<Game>().HasKey(e => e.Id);
+      builder.Entity<User>().HasKey(e => e.Id);
+
+      OnModelSeeding(builder);
+    }
+
+    private static void OnModelSeeding(ModelBuilder builder)
+    {
+
+    }
+  }
+}
