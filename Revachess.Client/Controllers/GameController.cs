@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Revachess.Client.Controllers
@@ -8,7 +9,8 @@ namespace Revachess.Client.Controllers
     [HttpGet]
     public IActionResult Get()
     {
-      return Ok("Game data");
+      var games = new List<string> { "Game1", "Game2" };
+      return Ok(games);
     }
   }
 }
