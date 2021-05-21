@@ -9,7 +9,6 @@ namespace Revachess.Storage
     public DbSet<Game> Games { get; set; }
     public DbSet<User> Users { get; set; }
 
-
     public ChessContext(DbContextOptions options) : base(options) { }
 
     /// <summary>
@@ -26,6 +25,11 @@ namespace Revachess.Storage
 
     private static void OnModelSeeding(ModelBuilder builder)
     {
+      builder.Entity<User>().HasData(new User[]
+      {
+        new User() {Id =1, UserName = "Fed"},
+        new User() {Id =2, UserName = "fred"}
+      });
 
     }
   }
