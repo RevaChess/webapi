@@ -12,7 +12,7 @@ namespace PizzaBox.Client.Models
 
     public void Load(UnitOfWork unitOfWork)
     {
-      //Games = unitOfWork.Games.Select(c => !string.IsNullOrWhiteSpace(c.Name)).ToList();
+      Games = unitOfWork.Games.Select(c => !string.IsNullOrWhiteSpace(c.Name)).ToList();
       Users = unitOfWork.Users.Select(s => !string.IsNullOrWhiteSpace(s.UserName)).ToList();
     }
 

@@ -28,6 +28,15 @@ namespace Revachess.Client
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddControllers();
+      services.AddCors(options =>
+      {
+        options.AddPolicy("public", config =>
+        {
+          config.AllowAnyHeader();
+          config.AllowAnyMethod();
+          config.AllowAnyOrigin();
+        });
+      });
       services.AddScoped<UnitOfWork>();
       services.AddDbContext<ChessContext>(options =>
       {
@@ -50,7 +59,7 @@ namespace Revachess.Client
       }
 
       app.UseRouting();
-
+      app.UseCors();
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();
