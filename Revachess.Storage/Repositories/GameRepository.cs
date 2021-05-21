@@ -26,13 +26,7 @@ namespace Revachess.Storage.Repositories
 
     public IEnumerable<Game> Select(Func<Game, bool> filter)
     {
-      return _context.Games
-      .Include(a => a.Id)
-      .Include(a => a.Name)
-      .Include(a => a.Player1).ThenInclude(a => a.UserName)
-      .Include(a => a.Player2).ThenInclude(a => a.UserName)
-      .Include(a => a.Winner).ThenInclude(a => a.UserName)
-      .Where(filter);
+      return _context.Games.Where(filter);
     }
     public void Update(Game entry)
     {

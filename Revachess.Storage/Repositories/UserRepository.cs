@@ -26,11 +26,7 @@ namespace Revachess.Storage.Repositories
 
     public IEnumerable<User> Select(Func<User, bool> filter)
     {
-      return _context.Users
-      .Include(a => a.Id)
-      .Include(a => a.UserName)
-      .Include(a => a.Password)
-      .Where(filter);
+      return _context.Users.Where(filter);
     }
     public void Update(User entry)
     {

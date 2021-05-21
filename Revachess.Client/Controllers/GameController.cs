@@ -1,16 +1,26 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using PizzaBox.Client.Models;
+using PizzaBox.Storage;
+using Revachess.Storage;
 
 namespace Revachess.Client.Controllers
 {
   [Route("[controller]")]
   public class GameController : ControllerBase
   {
-    [HttpGet]
-    public IActionResult Get()
+    private readonly UnitOfWork _unitOfWork;
+    public GameController(UnitOfWork unitOfWork)
     {
-      var games = new List<string> { "Game1", "Game2" };
-      return Ok(games);
+      _unitOfWork = unitOfWork;
+    }
+    [HttpGet]
+    public IActionResult GetUsers()
+    {
+      var data = new DataViewModel();
+      data.Load(_unitOfWork);
+
+      return Ok(data.Users);
     }
   }
 }
