@@ -40,13 +40,10 @@ namespace Revachess.Client
       services.AddScoped<UnitOfWork>();
       services.AddDbContext<ChessContext>(options =>
       {
-        if (!string.IsNullOrWhiteSpace(Configuration.GetConnectionString("mssql")))
+        options.UseSqlServer(Configuration.GetConnectionString("mssql"), opts =>
         {
-          options.UseSqlServer(Configuration.GetConnectionString("mssql"), opts =>
-          {
-            opts.EnableRetryOnFailure(3);
-          });
-        }
+          opts.EnableRetryOnFailure(3);
+        });
       });
     }
 
