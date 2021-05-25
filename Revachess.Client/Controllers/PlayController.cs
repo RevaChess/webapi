@@ -19,7 +19,7 @@ namespace Revachess.Client.Controllers
     }
     [HttpGet]
     [HttpPost]
-    public IActionResult AddUser(User user)
+    public IActionResult AddUser([FromBody] User user)
     {
       
       _unitOfWork.Users.Insert(user);
