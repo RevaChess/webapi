@@ -9,10 +9,10 @@ namespace Revachess.Client.Controllers
 {
   [Route("[controller]")]
   [EnableCors("public")]
-  public class GameController : ControllerBase
+  public class UserController : ControllerBase
   {
     private readonly UnitOfWork _unitOfWork;
-    public GameController(UnitOfWork unitOfWork)
+    public UserController(UnitOfWork unitOfWork)
     {
       _unitOfWork = unitOfWork;
     }
@@ -22,7 +22,7 @@ namespace Revachess.Client.Controllers
       var data = new DataViewModel();
       data.Load(_unitOfWork);
 
-      return Ok(data.Games);
+      return Ok(data.Users);
     }
   }
 }
