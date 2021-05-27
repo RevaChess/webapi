@@ -19,13 +19,11 @@ namespace Revachess.Domain.Models
       States = new List<GameState>();
     }
 
-    public Game(string Player1Username, string Player2Username)
+    public Game(User CurrentUser, User Oponent)
     {
       States = new List<GameState>();
-      Player1 = new User();
-      Player2 = new User();
-      Player1.UserName = Player1Username;
-      Player2.UserName = Player2Username;
+      Player1 = CurrentUser;
+      Player2 = Oponent;
     }
 
   }
