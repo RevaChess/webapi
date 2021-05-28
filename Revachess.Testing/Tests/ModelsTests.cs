@@ -43,6 +43,13 @@ namespace Revachess.Testing.Tests
     }
 
     [Fact]
+    public void Test_Game_States()
+    {
+      var game = new Game();
+      Assert.NotNull(game.States);
+    }
+
+    [Fact]
     public void Test_GameName()
     {
       var g = new Game();
@@ -69,6 +76,18 @@ namespace Revachess.Testing.Tests
       var game = new Game(p1, p2);
 
       Assert.NotNull(game);
+    }
+
+    [Fact]
+    public void Test_GamePlayers()
+    {
+      var p1 = new User();
+      var p2 = new User();
+      var game = new Game(p1, p2);
+
+      Assert.NotNull(game.States);
+      Assert.NotNull(game.Player1);
+      Assert.NotNull(game.Player2);
     }
 
     [Fact]
