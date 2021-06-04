@@ -12,6 +12,8 @@ Revachess is a new chess website that allows players to play chess against each 
 * Entity Framework
 * Microsoft SQL
 * xunit
+* REST
+* Docker
 
 ## Features
 
